@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Web-Based Bank Account" />
+        <meta name="author" content="Shagun Prasad" />
+        <title>
+            {% block head_title %}Web-Based Bank Account{% endblock %}
+        </title>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+        {% block head_extra %}{% endblock %}
+        <style>
+            html,
+            body {
+                height: 100%;
+                width: 100%;
+            }
+            
+            body {
+                background-image: url('{% static "img/bg3.jpg" %}');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+                padding-bottom: 5em;
+            }
+            body #main{
+                padding-bottom: 5em;
+            }
+            
+            footer {
+                position: fixed !important;
+                bottom: 0 !important;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body class="bg-gray-100">
+        {% block body %}
+            {% include 'core/navbar.html' %}
+            <div class="lg:container lg:mx-auto" id="main">
+                {% include 'core/messages.html' %}
+                {% block content %}
+                <!-- Add content here -->
+                {% endblock %}
+            </div>
+            {% include 'core/footer.html' %}
+
+        {% endblock %}
+        {% block footer_extra %}{% endblock %}
+    </body>
+
+</html>
